@@ -95,7 +95,7 @@ async function saveacone() {
         let current = await getsavedcones()
 
         if (!current) { return }
-        let s = fetch("https://ikelene.dev/storage/store.php", {
+        let s = await fetch("https://ikelene.dev/storage/store.php", {
             headers: {
                 "accept": "application/json",
                 "content-type": "application/json"
@@ -104,7 +104,7 @@ async function saveacone() {
             method: "POST",
             credentials: "omit"
         });
-        s = (await s).json()
+        s = await s.json()
 
         const now = await getsavedcones()
 
